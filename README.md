@@ -94,7 +94,8 @@ Beyond SQL
  	```
 	 SELECT online FROM online group by stats(field="grade")
 	```
- * topHits
+
+* topHits
  	```
 	  select top_hits(field="class", hitssort="age:desc", taglimit = "10", hitslimit = "1", _source="name,age,class,gender") from school
 	```
@@ -159,5 +160,10 @@ docker build -t elastichd:latest .
 ## Licenses
 
 This program is under the terms of the MIT License. See [LICENSE](https://github.com/farmerx/elasticHD/blob/master/LICENSE) for the full license text.
+
+## 使用镜像
+docker pull containerize/elastichd
+docker run -p 9800:9800 -d  containerize/elastichd
+
 
 
