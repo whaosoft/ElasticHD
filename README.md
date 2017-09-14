@@ -90,10 +90,11 @@ Beyond SQL
 	```
 	select * from test group by date_histogram(field="changeTime",interval="1h",format="yyyy-MM-dd HH:mm:ss")
 	```
- * stats
- 	```
+
+* stats
+2 	```
 	 SELECT online FROM online group by stats(field="grade")
-	```
+ 	```
 
 * topHits
  	```
@@ -118,11 +119,16 @@ statik -src=../dist
 GO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -o elasticHD.exe github.com/elasticHD/main
 ```
 ## Docker Quick Start:
+1.
 ```
 docker run -p 9200:9200 -d --name elasticsearch elasticsearch
 docker run -p 9800:9800 -d --link elasticsearch:demo containerize/elastichd
 ```
-
+2.
+```
+docker pull containerize/elastichd
+docker run -p 9800:9800 -d  containerize/elastichd
+```
 
 Open http://localhost:9800 in Browser
 Connect with http://demo:9200
@@ -160,10 +166,6 @@ docker build -t elastichd:latest .
 ## Licenses
 
 This program is under the terms of the MIT License. See [LICENSE](https://github.com/farmerx/elasticHD/blob/master/LICENSE) for the full license text.
-
-## 使用镜像
-docker pull containerize/elastichd
-docker run -p 9800:9800 -d  containerize/elastichd
 
 
 
